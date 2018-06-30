@@ -1,0 +1,10 @@
+﻿ Welcome, and thank you for volunteering for our study. In the following
+experiment, you will be tasked with remembering the orientations of twostriped circles and recalling the orientation of one of those
+gratings after a period of delay.
+
+On the following set of screens, you will be introduced to the experiment
+with a series of tutorials. After reading the presented text, press any key
+to continue onto the next tutorial. Wait patiently while the next tutorial
+prepares itself.
+
+After the tutorial, you will run through 1 block of training trials. Please respond to each trial as carefully and as quickly as possible. Please let the experimenter know when you’ve completed the training block.
