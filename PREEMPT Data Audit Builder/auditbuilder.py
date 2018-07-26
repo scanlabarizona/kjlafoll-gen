@@ -15,9 +15,9 @@ print("Collecting Files...")
 root = "S:\\Killgore_SCAN\\UA_SCAN_Shared\\PREEMPT\\"
 #Check if connected to shared drive. If not, exit program
 if not os.path.exists("S:\\Killgore_SCAN\\UA_SCAN_Shared\\PREEMPT\\"):
-	print('Connect to Shared Drive and restart program.')
-	ExitProgramWarn = str(input("Processes completed. Press ENTER to exit program."))
-	exit()
+    print('Connect to Shared Drive and restart program.')
+    ExitProgramWarn = str(input("Processes completed. Press ENTER to exit program."))
+    exit()
 #Build a list of all files and their respective paths in the PREEMPT folder
 dumplist = []
 for p, s, f in os.walk(root):
@@ -29,6 +29,7 @@ xlApp = win32com.client.Dispatch('Excel.Application')
 masterobject = xlApp.Workbooks.Open(root + "Tracking_Storage_Scheduling_Logs\\PREEMPT_Subject_Masterlist.xlsx", False,
                                     True, None, Password='').Worksheets(1)
 #Build dataframe with first 19 columns of masterlist cells and all used rows (all subjects)
+#Make sure that there are no cells formatted as DATES. This confuses the Value attribute.
 masterlist = pd.DataFrame(
     list(masterobject.Range(masterobject.Cells(1, 1), masterobject.Cells(masterobject.UsedRange.Rows.Count, 19)).Value))
 masterlist.columns = masterlist.iloc[0]
@@ -145,5 +146,3 @@ writer.save()
 
 newobject = xlApp.Workbooks.Open(root + "Tracking_Storage_Scheduling_Logs\\Data_Entry_Audit.xlsx", False,
                                     True, None).Worksheets(1)
-
-ExitProgramWarn = str(input("Processes completed. Press ENTER to exit program."))
